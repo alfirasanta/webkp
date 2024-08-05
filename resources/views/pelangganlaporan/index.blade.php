@@ -83,8 +83,7 @@
                             style="font-weight: 700;">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url('/layananpelanggan') }}"
-                            style="font-weight: 700;">LAYANAN</a>
+                        <a class="nav-link" aria-current="page" href="#" style="font-weight: 700;">LAYANAN</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('pelangganlaporan.create') }}"
@@ -122,68 +121,59 @@
             </div>
         </div>
     </div>
-    <section id="contact" class="contact section-bg">
-        <div class="container">
-
-            <div class="col-md-12 mt-md-5">
-                <div class="section-header text-center pb-5">
-                    <h2>Form Laporan</h2>
-                    <p>Laporkan segala kendala Anda kepada kami.</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center" style="margin-bottom: 50px">
-                <div class="col-lg-10">
-                    <form action="{{ route('pelangganlaporan.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                name="nama" id="nama" placeholder="Nama" type="text" name="nama"
-                                id="nama" value="{{ old('nama') }}">
-                            @error('nama')
-                                <small>{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control @error('no_telp') is-invalid @enderror"
-                                name="no_telp" id="no_telp" placeholder="No. Telp" value="{{ old('no_telp') }}">
-                            @error('no_telp')
-                                <small>{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control @error('no_telp') is-invalid @enderror"
-                                name="alamat" id="alamat" placeholder="Alamat" value="{{ old('alamat') }}">
-                            @error('alamat')
-                                <small>{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control @error('no_telp') is-invalid @enderror"
-                                name="no_pelanggan" id="no_pelanggan" placeholder="No. Pelanggan"
-                                value="{{ old('no_pelanggan') }}">
-                            @error('no_pelanggan')
-                                <small>{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="masalah" id ="masalah" rows="5" placeholder="Detail" required></textarea>
-                        </div>
-                        <div class="text-center"><button type="submit"
-                                style="background: #3498db; margin-top: 50px;
-border: 0;
-padding: 10px 24px;
-color: #fff;
-transition: 0.4s;
-border-radius: 4px;">Send
-                                Form</button></div>
-                    </form>
-                </div>
-
-            </div>
-
+    <div class="col-md-12 mt-md-5">
+        <div class="section-header text-center pb-5">
+            <h2>Status Laporan</h2>
+            <p>Pantau status laporan Anda di sini.</p>
         </div>
-    </section>
+    </div>
+    <div class="container-fluid py-3">
+        <div class="container">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">No. </th>
+                            <th scope="col">Nama </th>
+                            <th scope="col">Alamat </th>
+                            <th scope="col">No. Telp </th>
+                            <th scope="col">No. Pelanggan </th>
+                            <th scope="col">Detail </th>
+                            <th scope="col">Solusi </th>
+                            <th scope="col">Status </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($laporans as $index => $laporan)
+                            <tr>
+                                <th scope="row">{{ $index + 1 }}</th>
+                                <td>{{ $laporan->nama }}</td>
+                                <td>{{ $laporan->alamat }}</td>
+                                <td>{{ $laporan->no_telp }}</td>
+                                <td>{{ $laporan->no_pelanggan }}</td>
+                                <td>{{ $laporan->masalah }}</td>
+                                <td>{{ $laporan->solusi }}</td>
+                                <td>{{ $laporan->status->nama_status }}</td>
+                            </tr>
+                        @endforeach
+                        {{-- @php $no = 1; @endphp
+                        @foreach ($daftarlaporan as $daftarlaporan)
+                            <tr>
+                                <th scope="row">{{ $no++ }}</th>
+                                <td>{{ $daftarlaporan->no_pel }}</td>
+                                <td>{{ $daftarlaporan->nama }}</td>
+                                <td>{{ $daftarlaporan->alamat }}</td>
+                                <td>{{ $daftarlaporan->no_telp }}</td>
+                                <td>{{ $daftarlaporan->detail }}</td>
+                                <td>{{ $daftarlaporan->status }}</td>
+                            </tr>
+                        @endforeach --}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
     <footer class="bg-body-tertiary text-center text-lg-start">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2020 Copyright:

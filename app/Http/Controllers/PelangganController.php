@@ -13,8 +13,16 @@ class PelangganController extends Controller
      */
     public function index()
     {
+        $categories = Kategori::all();
         $kategoris = Kategori::all();
-        return view('pelanggan.index', compact('kategoris'));
+        $services = Layanan::all(); // default to show all services
+        return view('pelanggan.index', compact('categories', 'services', 'kategoris'));
+    }
+
+    public function filterByCategory(Request $request)
+    {
+        $services = Layanan::where('id_kategori', $request->id_kategori)->get();
+        return view('pelanggan.partials._services', compact('services'))->render();
     }
 
     /**

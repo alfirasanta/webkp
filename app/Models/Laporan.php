@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_status', 'nama', 'no_telp', 'alamat', 'no_pelanggan', 'masalah', 'solusi'];
+    protected $fillable = ['id_status', 'id_user', 'nama', 'no_telp', 'alamat', 'no_pelanggan', 'masalah', 'solusi'];
     public function status()
     {
         return $this->belongsTo(Status::class, 'id_status');
     }
-    // public function pelanggan()
-    // {
-    //     return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
-    // }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

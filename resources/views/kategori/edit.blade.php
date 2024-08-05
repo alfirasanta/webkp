@@ -64,14 +64,6 @@
                 </a>
             </li>
 
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('adminpelanggan.index') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -133,6 +125,28 @@
                                 value="{{ $errors->any() ? old('nama_kategori') : $kategori->nama_kategori }}"
                                 placeholder="Masukkan Nama Kategori">
                             @error('nama_kategori')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            {{-- <input type="text" class="form-control" id="kode" name='kode'
+                                    value="{{ $ekategori->kode }}"> --}}
+                            <input class="form-control @error('deskripsi') is-invalid @enderror" type="text"
+                                name="deskripsi" id="deskripsi"placeholder="Masukkan Deskripsi"
+                                value="{{ $errors->any() ? old('deskripsi') : $kategori->deskripsi }}">
+                            @error('deskripsi')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="kelebihan" class="form-label">Kelebihan</label>
+                            {{-- <input type="text" class="form-control" id="kode" name='kode'
+                                    value="{{ $ekategori->kode }}"> --}}
+                            <input class="form-control @error('kelebihan') is-invalid @enderror" type="text"
+                                name="kelebihan" id="kelebihan"placeholder="Masukkan Kelebihan Produk"
+                                value="{{ $errors->any() ? old('kelebihan') : $kategori->kelebihan }}">
+                            @error('kelebihan')
                                 <small>{{ $message }}</small>
                             @enderror
                         </div>

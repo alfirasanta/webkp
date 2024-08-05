@@ -44,34 +44,25 @@
             </li>
 
             <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/layananadmin') }}">
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="{{ route('adminlayanan.index') }}">
                     <span>Layanan</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/kategoriadmin') }}">
+                <a class="nav-link collapsed" href="{{ route('adminkategori.index') }}">
                     <span>Kategori</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/laporanadmin') }}">
+                <a class="nav-link collapsed" href="{{ route('adminlaporan.index') }}">
                     <span>Laporan</span>
                 </a>
             </li>
-
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="{{ url('/listpelanggan') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -108,7 +99,8 @@
                         <h1 class="h3 mb-0 text-gray-800">Edit Layanan</h1>
 
                     </div>
-                    <form action="{{ route('adminlayanan.update', [$layanans->id]) }}" method="POST">
+                    <form action="{{ route('adminlayanan.update', [$layanans->id]) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="mb-3">
@@ -130,6 +122,24 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            <input class="form-control @error('gambar') is-invalid @enderror" type="file"
+                                name="gambar" id="gambar"placeholder="Masukkan Gambar"
+                                value="{{ $errors->any() ? old('gambar') : $layanans->gambar }}">
+                            @error('gambar')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input class="form-control @error('harga') is-invalid @enderror" type="text"
+                                name="harga" id="harga"placeholder="Masukkan Harga Layanan"
+                                value="{{ $errors->any() ? old('harga') : $layanans->harga }}">
+                            @error('harga')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="nama_kategori" class="form-label">Nama Kategori</label>
                             <select class="form-control" id="nama_kategori" name='nama_kategori'>
                                 @php
@@ -145,7 +155,7 @@
                                         {{ $selected == $kategori->id ? 'selected' : '' }}>
                                         {{ $kategori->kode .
                                             ' -
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ' .
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ' .
                                             $kategori->nama_kategori }}
                                     </option>
                                 @endforeach

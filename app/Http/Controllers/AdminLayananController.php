@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdminLayananController extends Controller
@@ -36,11 +37,15 @@ class AdminLayananController extends Controller
     {
         //
         $messages = [
-            'required' => ':Attribute harus diisi.'
+            'required' => ':Attribute harus diisi.',
+            'image' => ':Attribute harus berupa file gambar.',
+            'mimes' => ':Attribute harus berupa file dengan format jpeg, png, jpg, gif, atau svg.',
         ];
         $validator = Validator::make($request->all(), [
             'nama_layanan' => 'required',
             'detail' => 'required',
+            'harga' => 'required|numeric',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], $messages);
 
         if ($validator->fails()) {
@@ -50,6 +55,14 @@ class AdminLayananController extends Controller
         $layanan->id_kategori = $request->nama_kategori;
         $layanan->nama_layanan = $request->nama_layanan;
         $layanan->detail = $request->detail;
+        $layanan->harga = $request->harga;
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            $gambar->storeAs('public/products', $gambar->hashName());
+            $layanan->gambar = $gambar->hashName();
+        }
+
         $layanan->save();
 
         return redirect()->route('adminlayanan.index');
@@ -81,11 +94,15 @@ class AdminLayananController extends Controller
     {
         //
         $messages = [
-            'required' => ':Attribute harus diisi.'
+            'required' => ':Attribute harus diisi.',
+            'image' => ':Attribute harus berupa file gambar.',
+            'mimes' => ':Attribute harus berupa file dengan format jpeg, png, jpg, gif, atau svg.',
         ];
         $validator = Validator::make($request->all(), [
             'nama_layanan' => 'required',
             'detail' => 'required',
+            'harga' => 'required|numeric',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ], $messages);
 
         if ($validator->fails()) {
@@ -95,6 +112,21 @@ class AdminLayananController extends Controller
         $layanan->id_kategori = $request->nama_kategori;
         $layanan->nama_layanan = $request->nama_layanan;
         $layanan->detail = $request->detail;
+        $layanan->harga = $request->harga;
+
+        // Check if a new image file is uploaded
+        if ($request->hasFile('gambar')) {
+            // Delete the old image if it exists
+            if ($layanan->gambar) {
+                Storage::delete('public/products/' . $layanan->gambar);
+            }
+
+            // Store the new image
+            $gambar = $request->file('gambar');
+            $gambar->storeAs('public/products', $gambar->hashName());
+            $layanan->gambar = $gambar->hashName(); // Update the image name in the database
+        }
+
         $layanan->save();
 
         return redirect()->route('adminlayanan.index');

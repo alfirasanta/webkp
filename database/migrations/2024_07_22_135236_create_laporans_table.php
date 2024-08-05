@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('alamat');
             $table->unsignedBigInteger('no_pelanggan');
             $table->text('masalah');
-            $table->text('solusi')->nullable();
             $table->timestamps();
         });
     }

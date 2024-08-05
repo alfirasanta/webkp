@@ -64,14 +64,6 @@
                 </a>
             </li>
 
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('adminpelanggan.index') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -121,7 +113,11 @@
                                                 Layanan</th>
                                             <th style="background-color: #3498db; color: white" scope="col">Detail
                                             </th>
+                                            <th style="background-color: #3498db; color: white" scope="col">Harga
+                                            </th>
                                             <th style="background-color: #3498db; color: white" scope="col">Kategori
+                                            </th>
+                                            <th style="background-color: #3498db; color: white" scope="col">Gambar
                                             </th>
                                             <th style="background-color: #3498db; color: white" scope="col">Aksi</th>
                                         </tr>
@@ -134,8 +130,14 @@
                                                 </th>
                                                 <td style="background-color: white;">{{ $layanan->nama_layanan }}</td>
                                                 <td style="background-color: white;">{{ $layanan->detail }}</td>
+                                                <td style="background-color: white;">{{ $layanan->harga }}
+                                                </td>
                                                 <td style="background-color: white;">
                                                     {{ $layanan->category->nama_kategori }}</td>
+                                                <td style="background-color: white;">
+                                                    <img src="{{ asset('storage/products/' . $layanan->gambar) }}"
+                                                        alt="Gambar" style="width: 100px; height: auto;">
+                                                </td>
                                                 <td style="background-color: white;">
                                                     <form>
                                                         <a class="btn btn-sm btn-success"

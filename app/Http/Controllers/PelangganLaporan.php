@@ -6,6 +6,7 @@ use App\Models\Laporan;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class PelangganLaporan extends Controller
 {
@@ -14,6 +15,8 @@ class PelangganLaporan extends Controller
      */
     public function index()
     {
+        $laporans = Laporan::all();
+        return view('pelanggan.index', compact('laporans'));
     }
 
     /**
@@ -21,7 +24,7 @@ class PelangganLaporan extends Controller
      */
     public function create()
     {
-        return view('pelangganlaporan.create');
+        return view('pelanggan.index');
     }
 
     /**
@@ -30,7 +33,8 @@ class PelangganLaporan extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'required' => ':Attribute harus diisi.'
+            'required' => ':Attribute harus diisi.',
+            'numeric' => ':Attribute harus berupa angka.'
         ];
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
@@ -43,6 +47,7 @@ class PelangganLaporan extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
+
         $laporan = new Laporan();
         $laporan->id_status = $request->input('id_status', 1);
         $laporan->nama = $request->nama;
@@ -52,9 +57,8 @@ class PelangganLaporan extends Controller
         $laporan->masalah = $request->masalah;
         $laporan->save();
 
-        return redirect()->route('pelangganlaporan.create');
+        return redirect()->route('pelanggan.index')->with('success', 'Terima kasih atas laporan Anda. Kami akan menghubungi Anda via WhatsApp.');
     }
-
     /**
      * Display the specified resource.
      */

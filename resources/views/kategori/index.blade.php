@@ -66,13 +66,6 @@
                 </a>
             </li>
 
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('adminpelanggan.index') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
 
         </ul>
         <!-- End of Sidebar -->
@@ -114,7 +107,7 @@
                         Kategori</a></button>
                     <div class="container-fluid py-3">
                         <div class="container">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -122,6 +115,10 @@
                                             <th style="background-color: #3498db; color: white" scope="col">Kode</th>
                                             <th style="background-color: #3498db; color: white" scope="col">Nama
                                                 Kategori</th>
+                                            <th style="background-color: #3498db; color: white" scope="col">
+                                                Deskripsi</th>
+                                            <th style="background-color: #3498db; color: white" scope="col">
+                                                Kelebihan</th>
                                             <th style="background-color: #3498db; color: white" scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -133,6 +130,10 @@
                                                 </th>
                                                 <td style="background-color: white;">{{ $kategori->kode }}</td>
                                                 <td style="background-color: white;">{{ $kategori->nama_kategori }}
+                                                </td>
+                                                <td style="background-color: white;">{{ $kategori->deskripsi }}
+                                                </td>
+                                                <td style="background-color: white;">{{ $kategori->kelebihan }}
                                                 </td>
                                                 <td style="background-color: white;">
                                                     <form>

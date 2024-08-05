@@ -64,14 +64,6 @@
                 </a>
             </li>
 
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('adminpelanggan.index') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
-
         </ul>
         <!-- End of Sidebar -->
 

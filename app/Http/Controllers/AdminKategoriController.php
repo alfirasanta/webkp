@@ -39,6 +39,8 @@ class AdminKategoriController extends Controller
         $validator = Validator::make($request->all(), [
             'kode' => 'required',
             'nama_kategori' => 'required',
+            'deskripsi' => 'required',
+            'kelebihan' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -48,6 +50,8 @@ class AdminKategoriController extends Controller
         $kategori = new Kategori;
         $kategori->kode = $request->kode;
         $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->deskripsi = $request->deskripsi;
+        $kategori->kelebihan = $request->kelebihan;
         $kategori->save();
 
         return redirect()->route('adminkategori.index');

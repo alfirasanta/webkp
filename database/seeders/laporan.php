@@ -21,7 +21,6 @@ class laporan extends Seeder
                 'alamat' => 'jl. Semeru no 19',
                 'no_pelanggan' => '83729020',
                 'masalah' => 'internet lemot',
-                'solusi' => '',
             ],
             [
                 'id_status' => '2',
@@ -30,7 +29,6 @@ class laporan extends Seeder
                 'alamat' => 'jl. Melati no. 20',
                 'no_pelanggan' => '82802272',
                 'masalah' => 'internet lemot',
-                'solusi' => 'restart'
             ],
         ]);
     }

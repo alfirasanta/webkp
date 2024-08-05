@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('id_kategori')->references('id')->on('kategoris');
             $table->string('nama_layanan');
             $table->string('detail');
+            $table->string('gambar')->nullable();
+            $table->unsignedBigInteger('harga');
             $table->timestamps();
         });
     }

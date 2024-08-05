@@ -64,7 +64,6 @@
                 </a>
             </li>
 
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -118,8 +117,6 @@
 
                                             <th style="background-color: #3498db; color: white" scope="col">Masalah
                                             </th>
-                                            <th style="background-color: #3498db; color: white" scope="col">Solusi
-                                            </th>
                                             <th style="background-color: #3498db; color: white" scope="col">Status
                                             </th>
                                             <th style="background-color: #3498db; color: white" scope="col">Aksi</th>
@@ -135,7 +132,6 @@
                                                 <td style="background-color: white;">{{ $laporan->alamat }}</td>
                                                 <td style="background-color: white;">{{ $laporan->no_pelanggan }}</td>
                                                 <td style="background-color: white;">{{ $laporan->masalah }}</td>
-                                                <td style="background-color: white;">{{ $laporan->solusi }}</td>
                                                 <td style="background-color: white;">
                                                     {{ $laporan->status->nama_status }}</td>
                                                 <td style="background-color: white;">

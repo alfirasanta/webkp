@@ -59,10 +59,10 @@
                                     </a>
                                 @endif --}}
                             </div>
-                            <div class="signin">
-                                <span>Don't have an account? <a href="{{ url('/registerpelanggan') }}">sign up
+                            {{-- <div class="signin">
+                                <span>Don't have an account? <a href="{{ route('register') }}">sign up
                                         here</a></span>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>

@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->role === $role; // Asumsi bahwa Anda memiliki kolom 'role' di tabel users
     }
+    public function laporan()
+    {
+        return $this->hasMany(Laporan::class, 'id_user');
+    }
 }

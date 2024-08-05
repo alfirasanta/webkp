@@ -64,13 +64,6 @@
                 </a>
             </li>
 
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('adminpelanggan.index') }}">
-                    <span>Pelanggan</span>
-                </a>
-            </li>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -125,6 +118,27 @@
                                 name="detail" id="detail" value="{{ old('detail') }}"
                                 placeholder="Masukkan Detail Layanan">
                             @error('detail')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            <input class="form-control @error('gambar') is-invalid @enderror" type="file"
+                                name="gambar" id="gambar" value="{{ old('gambar') }}"
+                                placeholder="Masukkan Gambar">
+                            @error('gambar')
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            {{-- <input type="text" class="form-control" id="detail" name='detail'> --}}
+                            <input class="form-control @error('harga') is-invalid @enderror" type="text"
+                                name="harga" id="harga" value="{{ old('harga') }}"
+                                placeholder="Masukkan Harga Layanan">
+                            @error('harga')
                                 <small>{{ $message }}</small>
                             @enderror
                         </div>
