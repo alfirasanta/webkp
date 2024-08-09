@@ -356,48 +356,48 @@
                 <div class="logo-wrapper">
                     <!-- List of logos (duplicate for smooth scroll) -->
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <!-- Tambahkan lebih banyak logo di sini -->
                     <!-- Duplicate -->
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 1">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 1">
                     </div>
                     <div class="logo-item">
-                        <img src="{{ asset('img/tel-u.png') }}" class="img-fluid" alt="Logo 2">
+                        <img src="{{ asset('img/telkom.png') }}" class="img-fluid" alt="Logo 2">
                     </div>
                     <!-- Tambahkan lebih banyak logo di sini -->
                 </div>
